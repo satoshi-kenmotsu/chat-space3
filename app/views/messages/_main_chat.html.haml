@@ -1,0 +1,30 @@
+.chat-main
+  .main-header
+    .main-header__left-box
+      %h2{class: "main-header__left-box__current-group", data: {group_id: "#"}}
+        サンプルグループ
+      %ul.main-header__left-box__member-list
+        SpecialMember:
+        %li.main-header__left-box__member-list__member
+          けんもつさとし
+    = link_to "#", class: "main-header__edit-btn" do
+      Edit
+  .message
+    .message__upper-info
+      %p.message__upper-info__talker
+        kenmotsu
+      %p.message__upper-info__date
+        2020/02/20(Thu) 14:11:17
+    .message__text
+      メッセージテキストメッセージテキスト
+  .form
+    %form{class: "new_message", id: "new_message", enctype: "multipart/form-data", action: "#", charset: "accept-UTF-8", method: "post"}
+      %input{name: "utf8", type: "hidden", value: "#"}
+      %input{type: "hidden", name: "authenticity_token", value: "#"}
+      
+      .input-box
+        %input{type: "text", class: "input-box__text", placeholder: "type a message", name: "message[content]", id: "message_content"}
+        %label{class: "input-box__image", for: "message_image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "input-box__image__file", name: "message[image]", id: "message_image"}
+      %input{type: "submit", class: "submit-btn", name: "commit", value: "Send", data: {disable_with: "Send"}}
