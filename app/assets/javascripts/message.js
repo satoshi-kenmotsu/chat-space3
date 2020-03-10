@@ -34,34 +34,34 @@ $(function(){
     if (message.content && message.image) {
       //data-idが反映されるようにしている
       var html = `<div class="message" data-message-id=` + message.id + `>` +
-        `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
+        `<div class="message__upper-info">` +
+          `<div class="message__upper-info__talker">` +
             message.user_name +
           `</div>` +
-          `<div class="upper-message__date">` +
+          `<div class="message__upper-info__date">` +
             message.created_at +
           `</div>` +
         `</div>` +
-        `<div class="lower-message">` +
-          `<p class="lower-message__content">` +
+        `<div class="message__text">` +
+          `<p class="message__text__content">` +
             message.content +
           `</p>` +
-          `<img src="` + message.image + `" class="lower-message__image" >` +
+          `<img src="` + message.image + `" class="message__text__image" >` +
         `</div>` +
       `</div>`
     } else if (message.content) {
       //同様に、data-idが反映されるようにしている
       var html = `<div class="message" data-message-id=` + message.id + `>` +
-        `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
+        `<div class="message__upper-info">` +
+          `<div class="message__upper-info__talker">` +
             message.user_name +
           `</div>` +
-          `<div class="upper-message__date">` +
+          `<div class="message__upper-info__date">` +
             message.created_at +
           `</div>` +
         `</div>` +
-        `<div class="lower-message">` +
-          `<p class="lower-message__content">` +
+        `<div class="message__text">` +
+          `<p class="message__text__content">` +
             message.content +
           `</p>` +
         `</div>` +
@@ -69,16 +69,16 @@ $(function(){
     } else if (message.image) {
       //同様に、data-idが反映されるようにしている
       var html = `<div class="message" data-message-id=` + message.id + `>` +
-        `<div class="upper-message">` +
-          `<div class="upper-message__user-name">` +
+        `<div class="message__upper-info">` +
+          `<div class="message__upper-info__talker">` +
             message.user_name +
           `</div>` +
-          `<div class="upper-message__date">` +
+          `<div class="message__upper-info__date">` +
             message.created_at +
           `</div>` +
         `</div>` +
-        `<div class="lower-message">` +
-          `<img src="` + message.image + `" class="lower-message__image" >` +
+        `<div class="message__text">` +
+          `<img src="` + message.image + `" class="message__text__image" >` +
         `</div>` +
       `</div>`
     };
@@ -102,7 +102,7 @@ $('#new_message').on('submit', function(e){
     $('.messages').append(html);
     $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
     $('form')[0].reset();
-    $(".form__submit").prop("disabled", false);
+    $(".submit-btn").prop("disabled", false);
   })
   .fail(function() {
        alert("メッセージ送信に失敗しました");
