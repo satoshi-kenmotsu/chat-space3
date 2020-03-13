@@ -18,3 +18,5 @@
 public/uploads/*
 gem 'carrierwave'
 gem 'mini_magick'
+
+config/secrets.yml
